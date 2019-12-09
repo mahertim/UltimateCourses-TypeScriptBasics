@@ -1,7 +1,15 @@
-const toppings = ['bacon', 'chilli'];
+const pizza = {
+  name: 'Pepperoni',
+  price: 15,
+};
 
-const newToppings = ['pepperoni'];
+const toppings = ['pepperoni'];
 
-const allToppings = [...newToppings, ...toppings];
+const order = {
+  ...pizza,
+  toppings,
+};
 
-console.log(allToppings);
+const finalOrder = { id: 0, ...order, coupon: 'none' };
+
+console.log(finalOrder);
