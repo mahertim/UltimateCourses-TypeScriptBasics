@@ -1,7 +1,17 @@
-function multiply(a: number, b = 25) {
-  return a * b;
+const pizza = {
+  name: 'Pepperoni',
+  price: 15,
+  getName() {
+    return this.name;
+  },
+};
+
+console.log(pizza.getName());
+
+const toppings = ['pepperoni'];
+
+function createOrder(thePizza = pizza, theToppings = toppings) {
+  return { thePizza, theToppings };
 }
 
-console.log(multiply(5));
-
-console.log(multiply(5, 35));
+console.log(createOrder(pizza, toppings));
