@@ -1,15 +1,29 @@
 const pizza = {
   name: 'Pepperoni',
-  price: 15,
+  toppings: ['pepperoni', 'bacon', 'chilli'],
 };
 
-const toppings = ['pepperoni'];
+function order({ name: pizzaName, toppings: pizzaToppings }: any) {
+  return { pizzaName, pizzaToppings };
+}
 
-const order = {
-  ...pizza,
-  toppings,
-};
+const { pizzaToppings } = order(pizza);
 
-const finalOrder = { id: 0, ...order, coupon: 'none' };
+const toppings = pizzaToppings;
 
-console.log(finalOrder);
+const [first, second, third] = toppings;
+
+console.log(first, second, third);
+
+function logToppings([first, second, third]: any) {
+  console.log(
+    'Topping 1: ',
+    first,
+    '\nTopping 2: ',
+    second,
+    '\nTopping 3: ',
+    third,
+  );
+}
+
+logToppings(toppings);
